@@ -36,14 +36,14 @@ public class Overload {
         System.out.println(concat(3, concat(concat(s1, s2), s3)));
 
         // abbccc
-        // System.out.println(concat(1, s1) + concat(2, s2) + concat(3, s3)); <- Mit + Operator
+        // System.out.println(concat(1, s1) + concat(2, s2) + concat(3, s3)); <- Mit +
+        // Operator
         System.out.println(concat(concat(concat(1, s1), concat(2, s2)), concat(3, s3)));
 
         // aaa-bbb-ccc
-        //String[] testFeld = new String[]{concat(3, s1), concat(3, s2), concat(3, s3)};
-        //System.out.println(concat(testFeld, c));
-        // Hallo, Test
-        System.out.println(concat(new String[] {concat(3, s1), concat(3, s2), concat(3, s3)}, c));
+        // String[] testFeld = new String[]{concat(3, s1), concat(3, s2), concat(3, s3)};
+        // System.out.println(concat(testFeld, c));
+        System.out.println(concat(new String[] { concat(3, s1), concat(3, s2), concat(3, s3) }, c));
 
     }
 
