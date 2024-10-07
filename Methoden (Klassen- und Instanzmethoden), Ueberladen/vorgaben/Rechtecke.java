@@ -1,7 +1,7 @@
 class Punkt {
     public int x, y;
 }
-
+// Test fuer GitHub
 class Rechteck {
     public String name;
     public Punkt loEcke; // linke, obere Ecke
