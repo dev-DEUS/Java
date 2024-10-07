@@ -56,14 +56,10 @@ public class Rechtecke {
         return indexGroesse;
     }
 
-    public static void sortieren(Rechteck[] rechtecke, int vonIndx) {
+    public static void sortieren(Rechteck[] rechtecke) {
         // Unzulaessige Eingaben von vonIndx werden verhindert (nicht sortiert).
-        if (vonIndx < 0 || vonIndx >= rechtecke.length) {
-            System.out.println("Indexwert außerhalb des Arrays.");
-            return;
-        }
 
-        for (int i = vonIndx; i < rechtecke.length; i++) {
+        for (int i = 0; i < rechtecke.length; i++) {
             Rechteck temp = rechtecke[i];
             int indexFound = findeIndexVonMin(rechtecke, i);
 
@@ -80,7 +76,7 @@ public class Rechtecke {
         fuellen(rechtecke);
         ausgeben(rechtecke);
         System.out.println("\n\nAb hier geaendert:");
-        sortieren(rechtecke, 0);
+        sortieren(rechtecke);
         ausgeben(rechtecke);
     }
 }
