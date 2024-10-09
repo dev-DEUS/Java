@@ -31,9 +31,9 @@ public class Rechtecke {
     public static void ausgeben(Rechteck[] rechtecke) {
         for (int i = 0; i < rechtecke.length; i++) {
             System.out.println((i + 1) + ". Rechteck");
-            System.out.println("Ecke:\t\t(" + rechtecke[i].loEcke.x + "|" + rechtecke[i].loEcke.y + ")");
+            System.out.println("   Ecke:\t(" + rechtecke[i].loEcke.x + "|" + rechtecke[i].loEcke.y + ")");
             System.out.println(
-                    "Groesse:\t" + rechtecke[i].breite + " x " + rechtecke[i].hoehe + " = " + groesse(rechtecke[i]));
+                    "   Groesse:\t" + rechtecke[i].breite + " x " + rechtecke[i].hoehe + " = " + groesse(rechtecke[i]));
             System.out.println("----------------");
         }
     }
