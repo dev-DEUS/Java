@@ -57,8 +57,6 @@ public class Rechtecke {
     }
 
     public static void sortieren(Rechteck[] rechtecke) {
-        // Unzulaessige Eingaben von vonIndx werden verhindert (nicht sortiert).
-
         for (int i = 0; i < rechtecke.length; i++) {
             Rechteck temp = rechtecke[i];
             int indexFound = findeIndexVonMin(rechtecke, i);
@@ -72,10 +70,8 @@ public class Rechtecke {
         int N = 5;
         Rechteck[] rechtecke = new Rechteck[N];
 
-        System.out.println("Vor der Sortierung:");
         fuellen(rechtecke);
         ausgeben(rechtecke);
-        System.out.println("\n\nAb hier geaendert:");
         sortieren(rechtecke);
         ausgeben(rechtecke);
     }
