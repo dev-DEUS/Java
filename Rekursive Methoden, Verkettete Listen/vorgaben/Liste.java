@@ -49,8 +49,11 @@ public class Liste {
     /* *** Aufgabenteil (a) *** */
     
     public double getSummeAusgaben(){
-
-        return 0.0;   // Dummy Return: muss ersetzt werden
+        double summe = 0.0;
+        for (int i = 0; i < length(); i++) {
+            summe = 
+            return summe;
+        }
     }
 
     /* *** Aufgabenteil (b) *** */

@@ -1,7 +1,7 @@
 public class Rekursion2 {
 
     /* *** Aufgabenteil (a) *** */
-    public static int quadratRek(int a){
+    public static int quadratRek(int a) {
         if (a == 1) {
             return 1; // Fuer den Fall 1^(2) = 1
         } else {
@@ -11,7 +11,7 @@ public class Rekursion2 {
 
     /* *** Aufgabenteil (b) *** */
 
-    public static int treppen(int n, String s){
+    public static int treppen(int n, String s) {
         int summe = 0;
         if (n == 0) {
             System.out.print(s);
@@ -29,7 +29,7 @@ public class Rekursion2 {
     }
 
     /* *** Aufgabenteil (c) *** */
-    public static int naechstesElement(int a_i){
+    public static int naechstesElement(int a_i) {
         if (a_i % 2 == 0) {
             return a_i / 2;
         } else {
@@ -37,7 +37,7 @@ public class Rekursion2 {
         }
     }
 
-    public static void collatz(int a, int count){
+    public static void collatz(int a, int count) {
         if (a == 1) {
             System.out.println("1");
             System.out.println("Laenge der Folge: " + count);
@@ -47,28 +47,26 @@ public class Rekursion2 {
         }
     }
 
+    public static void main(String[] args) {
 
-
-    public static void main(String[] args){
-
-	/* *** Test  Aufgabenteil (a) *** */
+        /* *** Test Aufgabenteil (a) *** */
         System.out.println("(a)");
-	int z;
-	do {
-	    z = IOTools.readInteger("z = ");
-	} while (z < 0);
-	System.out.println("z^2 = " + quadratRek(z));
-        
-	/* *** Test  Aufgabenteil (b) *** */
-	System.out.println("\n(b)");
+        int z;
+        do {
+            z = IOTools.readInteger("z = ");
+        } while (z < 0);
+        System.out.println("z^2 = " + quadratRek(z));
+
+        /* *** Test Aufgabenteil (b) *** */
+        System.out.println("\n(b)");
         int n = IOTools.readInteger("n = ");
-        int count = treppen(n,"");
-        System.out.println("Anzahl der Möglichkeiten: " + count);  
+        int count = treppen(n, "");
+        System.out.println("Anzahl der Möglichkeiten: " + count);
 
-	/* *** Test  Aufgabenteil (c) *** */
-	System.out.println("\n(c)");
-	int a0 = IOTools.readInteger("a_0 = ");
-	collatz(a0,1);
+        /* *** Test Aufgabenteil (c) *** */
+        System.out.println("\n(c)");
+        int a0 = IOTools.readInteger("a_0 = ");
+        collatz(a0, 1);
 
-   }
+    }
 }
