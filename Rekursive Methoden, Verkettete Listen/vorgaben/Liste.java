@@ -50,16 +50,25 @@ public class Liste {
     
     public double getSummeAusgaben(){
         double summe = 0.0;
-        for (int i = 0; i < length(); i++) {
-            summe = 
-            return summe;
+        double betrag = 0.0;
+        Listenelement ele = head.next;
+        while (ele != z) { 
+            betrag = ele.data.getBetrag();
+            summe += betrag;
+            ele = head.next;
         }
+        return summe;
     }
 
     /* *** Aufgabenteil (b) *** */
     public Liste getAusgabenListeMonat(String monat){
-        
-        return null;   // Dummy Return: muss ersetzt werden
+        Liste liste = new Liste();
+
+        while () {
+            
+        }
+
+        return null;
     }
 
 
