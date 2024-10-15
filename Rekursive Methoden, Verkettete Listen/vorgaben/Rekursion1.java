@@ -40,12 +40,23 @@ public class Rekursion1 {
 /*
  * Aufgabenteil (a)
  * Ausgabe: 2 3 3 7 13
- * 
- * 
+ * Aufrufhierachie:
+ * r(21294, 2) -> r(10647, 2) -> r(10647, 3) -> r(3549, 3) -> r(1183, 3) ->
+ * r(1183, 7) -> r(169, 7) -> r(169, 13) -> r(13, 13) -> r(1, 13)
+ * Die Methode r ruft die Primfaktoren von n
+ * rekursiv auf, und berechnet und gibt sie am Ende aus. Der Startwert für k ist
+ * immer 2, und bei jedem
+ * rekursiven Aufruf wird geprüft, ob n durch k teilbar ist. Wenn ja, wird k
+ * ausgegeben und n durch k geteilt. Wenn nicht, wird k um 1 erhöht und weiter
+ * geprueft.
  */
 
 /*
  * Aufgabenteil (b)
- * 
- * 
+ * Die Methode f(int n) gibt alle Primfaktoren von n aus.
+ * Diese werden jeweils durch ein ein Leerzeichen getrennt.
+ * Der Algorithmus funktioniert rekursiv und prueft, ob n durch k teilbar ist.
+ * Wenn ja, wird k ausgegeben und n durch k geteilt. Ansonsten wird k
+ * inkrementiert, um den nächsten möglichen Teiler zu testen. Der Prozess
+ * wird bis n == 1 durchgefuehrt.
  */
