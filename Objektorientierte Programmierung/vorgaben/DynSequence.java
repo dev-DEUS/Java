@@ -22,7 +22,8 @@ public class DynSequence {
 
     // Fuegt einen Wert an einer bestimmten Stelle (Index) in das Array ein
     public void insertValueAt(int index, double wert) {
-        // Prueft, ob der Index ausserhalb der erlaubten Grenzen liegt, und korrigiert ihn
+        // Prueft, ob der Index ausserhalb der erlaubten Grenzen liegt, und korrigiert
+        // ihn
         if (index < 0) {
             index = 0;
         } else if (index > size()) {
