@@ -13,12 +13,12 @@ public class RegEx {
     // 1
     public static boolean check2(String s) {
         return s.matches("^(2|3|5|7|11|13|17|19)$");
-    }
+    } 
 
     /* Ziffernfolge, die mindestens eine 7 enthält */
     // 1
     public static boolean check3(String s) {
-        return s.matches("(\\d?)*7+(\\d?)*"); 
+        return s.matches("(\\d)*7+(\\d)*"); 
     }
 
     /* Ziffernfolge, die maximal 2 Mal ein x oder X enthält */
