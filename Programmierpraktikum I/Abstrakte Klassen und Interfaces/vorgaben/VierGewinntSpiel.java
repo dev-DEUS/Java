@@ -7,9 +7,11 @@ public class VierGewinntSpiel extends Spiel {
         VierGewinnBrett spielBrett = (VierGewinnBrett) this.brett;
         int spalten = 0;
 
+        System.out.println("Spieler Nr. " + spieler.getID());
         do {
             spalten = IOTools.readInteger("Spalte eingeben: ");
-        } while ((spalten < 1 || spalten > 7) && !spielBrett.hinzufuegen(spieler, spalten, -1));
+        } while ((spalten < 1 || spalten > 7) || !spielBrett.hinzufuegen(spieler, spalten, -1));
+
     }
 
     public static void main(String[] args) {
