@@ -64,6 +64,9 @@ public class Maze {
                 currentCoord = makeCoord((byte) (getX(currentCoord) + 1), getY(currentCoord));
             } else if ((move.equals("west") || move.equals("w")) && hasWExit(currentCoord)) {
                 currentCoord = makeCoord((byte) (getX(currentCoord) - 1), getY(currentCoord));
+            } else if (move.equals("exit") || move.equals("x")) {
+                System.out.println("You loose.");
+                play = false;
             } else {
                 System.out.println("Invalid move.");
             }
