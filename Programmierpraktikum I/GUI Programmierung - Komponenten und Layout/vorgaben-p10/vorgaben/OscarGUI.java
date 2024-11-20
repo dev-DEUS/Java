@@ -66,6 +66,7 @@ public class OscarGUI extends JFrame {
 
         // 5. Punkt
         p.setLayout(new GridLayout(3, 2, 20, 5));
+        box.setOpaque(false);
         p.setOpaque(true);
         p.setBackground(controlPanelColor);
 
@@ -79,7 +80,7 @@ public class OscarGUI extends JFrame {
         p.add(box);
 
         JPanel p2 = new JPanel();
-        p2.setPreferredSize(new Dimension(350, 100));
+        p.setPreferredSize(new Dimension(350, 100));
         p2.add(p);
         p2.setBackground(controlPanelColor);
 
@@ -93,19 +94,19 @@ public class OscarGUI extends JFrame {
 
         JPanel p = new JPanel();
         p.setOpaque(true);
-        createCombinedBorder(p);
 
         text = new JTextArea(15, 40);
         text.setBackground(textPanelColor);
         text.setLineWrap(true);
         text.setWrapStyleWord(true);
-
+        createCombinedBorder(text);
         JScrollPane scrollPane = new JScrollPane(text);
 
         text.setText(createText(nmArr));
 
+        p.setBackground(controlPanelColor);
         p.add(scrollPane);
-    
+
         return p;
     }
 
