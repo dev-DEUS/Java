@@ -1,12 +1,12 @@
 import javax.swing.*;
-import java.awt.*; 
+import java.awt.*;
 import java.awt.event.*;
 import java.awt.geom.*;
 
-public class OscarGUI extends JFrame{
-    private static Nominee[] nominees = Nominee.getNominees();  
+public class OscarGUI extends JFrame {
+    private static Nominee[] nominees = Nominee.getNominees();
 
-    private JComboBox<Integer> years = new JComboBox<>();     // Combobox für Jahre
+    private JComboBox<Integer> years = new JComboBox<>(); // Combobox für Jahre
     private JComboBox<String> categories = new JComboBox<>(); // Combobox für Kategorien
     private JCheckBox winnersOnly;
     private JTextArea results;
@@ -14,39 +14,51 @@ public class OscarGUI extends JFrame{
     private static Color bgc1 = new Color(255, 204, 102);
     private static Color bgc2 = new Color(255, 255, 240);
 
-    public OscarGUI(){
-	super ("Academy Awards GUI");
-	this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-	this.createComponents(); 
+    public OscarGUI() {
+        super("Academy Awards GUI");
+        this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        this.createComponents();
         this.createListener();
-	this.pack();
+        this.pack();
     }
 
     /* *** Aufgabe 2a *** */
     // 2
     private void updateText() {
-       
+        int year = (int) this.years.getSelectedItem();
+        String category = (String) this.categories.getSelectedItem();
+        boolean onlyWinners = this.winnersOnly.isSelected();
+
+        Nominee[] filterNominees = FilterUtils.getNomineesInYear(nominees, year, category, onlyWinners);
+        String text = createText(filterNominees);
+        results.setText(text);
     }
 
     /* *** Aufgabe 2b *** */
-
-    
-
-    /* *** Aufgabe 2c *** */
-    // 
-    private void createListener() {
-       
+        private class ControlListener implements ActionListener {
+        public void actionPerformed(ActionEvent e) {
+            updateText();
+        }
     }
 
+    /* *** Aufgabe 2c *** */
+    //
+    private void createListener() {
+        ControlListener cl = new ControlListener();
+        
+        this.years.addActionListener(cl);
+        this.categories.addActionListener(cl);
+        this.winnersOnly.addActionListener(cl);
+    }
 
     /* ************************************ */
-    /* ***   ab hier nichts mehr ändern *** */
+    /* *** ab hier nichts mehr ändern *** */
     /* ************************************ */
 
     public void createComponents() {
         JPanel p1 = createControlPanel();
         createCombinedBorder(p1);
-        
+
         JPanel p2 = createTextPanel();
         createCombinedBorder(p2);
 
@@ -55,9 +67,11 @@ public class OscarGUI extends JFrame{
         c.add(p2, BorderLayout.CENTER);
     }
 
-    /* create Panel with controls to selevt year, category and whether 
-       all Nominees are shown or only Winners */
-    private JPanel createControlPanel(){
+    /*
+     * create Panel with controls to selevt year, category and whether
+     * all Nominees are shown or only Winners
+     */
+    private JPanel createControlPanel() {
         JPanel p = new JPanel();
 
         // Combobox years füllen
@@ -82,30 +96,31 @@ public class OscarGUI extends JFrame{
         JLabel l2 = new JLabel("Category: ", SwingConstants.RIGHT);
         JLabel l3 = new JLabel("Show Winners Only: ", SwingConstants.RIGHT);
 
-        
-        // Layout 
-        p.setLayout(new GridLayout(3,2,20,5));
+        // Layout
+        p.setLayout(new GridLayout(3, 2, 20, 5));
 
-        for (Component c : new Component[] {l1, this.years, l2,
-                                            this.categories, l3,
-                                            this.winnersOnly}){
+        for (Component c : new Component[] { l1, this.years, l2,
+                this.categories, l3,
+                this.winnersOnly }) {
             p.add(c);
         }
 
         // ***
         JPanel p2 = new JPanel();
         p2.setBackground(bgc1);
-        p.setPreferredSize(new Dimension(350,100));
+        p.setPreferredSize(new Dimension(350, 100));
         p.setOpaque(false);
         p2.add(p);
         return p2;
     }
 
-    /* create and initialize Panel with JTextArea showing 
-       results of filter operations */
+    /*
+     * create and initialize Panel with JTextArea showing
+     * results of filter operations
+     */
     private JPanel createTextPanel() {
         JPanel p = new JPanel();
-        this.results = new JTextArea(15,40);
+        this.results = new JTextArea(15, 40);
         JScrollPane scroller = new JScrollPane(this.results);
         createCombinedBorder(this.results);
 
@@ -113,15 +128,16 @@ public class OscarGUI extends JFrame{
         // this.results.setText(createText(nmArr));
         this.updateText();
         this.results.setBackground(bgc2);
-        
+
         p.add(scroller);
         p.setBackground(bgc1);
         return p;
     }
 
-    /* erzeugt einen Text aus den String-Repräsentationen der Elemente
-       in dem Feld nmArr
-    */
+    /*
+     * erzeugt einen Text aus den String-Repräsentationen der Elemente
+     * in dem Feld nmArr
+     */
     private String createText(Nominee[] nmArr) {
         StringBuffer sBuf = new StringBuffer();
         for (Nominee nm : nmArr) {
@@ -130,20 +146,20 @@ public class OscarGUI extends JFrame{
         return sBuf.toString();
     }
 
-    /* Methode rzeugt einen zweiteiligen Rahmen für eine Komponente. 
-       Die Komponente wird durch einen leeren Rahmen (5 Pixel Plat nach oben und
-       unten, 10 nach links und rechts) umgeben und dieser wiederum durch eine
-       schwarze Linie.
+    /*
+     * Methode rzeugt einen zweiteiligen Rahmen für eine Komponente.
+     * Die Komponente wird durch einen leeren Rahmen (5 Pixel Plat nach oben und
+     * unten, 10 nach links und rechts) umgeben und dieser wiederum durch eine
+     * schwarze Linie.
      */
     private static void createCombinedBorder(JComponent c) {
         c.setBorder(BorderFactory.createCompoundBorder(BorderFactory.createLineBorder(Color.BLACK),
-                                                       BorderFactory.createEmptyBorder(5,10,5,10)));
+                BorderFactory.createEmptyBorder(5, 10, 5, 10)));
     }
-                
 
     public static void main(String[] args) {
-	OscarGUI gui = new OscarGUI();
-	gui.setVisible(true);
+        OscarGUI gui = new OscarGUI();
+        gui.setVisible(true);
     }
-    
+
 }

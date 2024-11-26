@@ -44,7 +44,9 @@ public class Nominee {
        returns an array containing all instances.
      */
     public static Nominee[] getNominees() {
-        String filenname = "academyAwards.csv";
+        //String filenname = "academyAwards.csv";
+        String filenname = "C:\\Users\\Administrator\\Documents\\GitHub\\Java\\Programmierpraktikum I\\GUI Programmierung - Komponenten und Layout\\vorgaben-p11\\vorgaben\\academyAwards.csv";
+
         java.util.ArrayList<Nominee> nomList = new java.util.ArrayList<>();
         try (BufferedReader bufR = new BufferedReader(new FileReader(filenname))) {
             String line;
