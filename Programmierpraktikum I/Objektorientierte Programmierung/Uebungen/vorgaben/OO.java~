@@ -1,0 +1,35 @@
+class Punkt1D {
+    double x = 2.0;
+    
+    public double getX() {
+	return x;
+    }
+
+    public void setX(double x) {
+	this.x = x;
+    }
+}
+
+class Punkt2D extends Punkt1D {
+    double y = 3.0;
+
+    public double getY() {
+	return y;
+    }
+
+    public void setY(double y) {
+	this.y = y;
+    }
+}
+
+class Punkt3D extends Punkt2D {
+    double z = 4.0;
+
+    public double getZ() {
+	return z;
+    }
+
+    public void setZ(double z) {
+	this.z = z;
+    }
+}

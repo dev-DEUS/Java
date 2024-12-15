@@ -1,0 +1,77 @@
+import java.time.*;
+import java.time.format.*;
+import java.time.temporal.*;
+import java.util.Locale;
+
+public class TerminverwaltungJ8 {
+    LocalDateTime[] termine;
+
+   
+    private static int randomMinMax(int min, int max){
+	return (int)(Math.random() * (max-min+1)) +  min;
+    }
+
+
+    private static LocalDateTime createRandomTermin(){
+        int jahr = LocalDate.now().getYear();
+        int rDays = (int)(Math.random() * 366);
+        int stunde = randomMinMax(9,16);
+        int minute = randomMinMax(0,3)*15;
+        return LocalDateTime.of(jahr,1,1,stunde,minute).plusDays(rDays);
+    }
+    
+     
+    public TerminverwaltungJ8 (int n){
+	termine = new LocalDateTime[n];
+	for (int i=0;i<termine.length;i++){
+	    termine[i] = createRandomTermin();
+	}
+    }  
+
+    private int getKW(LocalDateTime termin){
+	return termin.get(IsoFields.WEEK_OF_WEEK_BASED_YEAR);
+
+	/* mit Locale */
+	//TemporalField tf = WeekFields.of(Locale.GERMANY).weekOfWeekBasedYear();
+	//return termin.get(tf);
+    }
+
+    /* ******************************************************* */
+    /* Methoden ergaenzen */
+    
+    // Einzelnen Termin generieren
+  
+    // Einzelnen Termin formatieren
+
+    // Termine in KW k (k = 1-52)
+ 
+    // alle Daten zwischen t1 und t2
+ 
+    // Termine vom nächsten Tag an (0:00) bis anzTage darauf bestimmen
+
+
+    
+    // Test
+    public static void main(String[] args){
+	int n = 25;
+	// TerminverwaltungJ8 mit 25 Terminen anlegen
+	TerminverwaltungJ8 tv = new TerminverwaltungJ8(n);
+
+	// Alle Termine ausgeben
+	System.out.println(">>>>>>>>Alle Termine: ");
+
+	
+	// Termine in KW 12 ausgeben
+	System.out.println("\n>>>>>>>>Termine in KW 12: ");
+
+
+	// Termine zwischen 1.5. und 5.6. ausgeben
+	System.out.println("\n>>>>>>>>Termine zwischen 12.5 und 5.6.: ");
+
+
+	// Termine in den nächsten 7 Tagen ausgeben
+	System.out.println("\n>>>>>>>>Termine in den nächsten 7 Tagen: ");
+
+	
+    }
+}

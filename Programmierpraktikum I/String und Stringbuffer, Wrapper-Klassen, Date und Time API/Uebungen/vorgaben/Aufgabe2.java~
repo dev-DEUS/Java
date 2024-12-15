@@ -1,0 +1,10 @@
+public class Aufgabe2{
+    private double[] zahlen;
+    private Double[] zahlObjekte;
+
+
+    public static void main(String[] args){
+	Aufgabe2 a2 = new Aufgabe2();
+
+   }
+}

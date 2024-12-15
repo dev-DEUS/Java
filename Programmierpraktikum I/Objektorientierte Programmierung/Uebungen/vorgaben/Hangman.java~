@@ -1,0 +1,39 @@
+public class Hangman{
+    private String geheim;
+    private int count = 10; // max. Anzahl Versuche (wird runtergezaehlt)
+    private String geraten; // Ratewort (zu Begin nur '-')
+    private String guesses; // speichert bereits ausprobierte Buchstaben
+    // Default-Initialisierung für den Fall, dass Datei words.txt fehlt
+    private String[] words = {"Schifffahrt", "Klassenfahrt", "Pseudozufallszahlengenerator", "Konzertkarten", "Schauspieler", "Generalvollmacht","Passagier"};
+
+
+    // geheimes Wort setzen
+    // geratenes Wort mit Luecken initialisieren
+    // geratene Buchstaben initialisieren
+    public Hangman(){
+	words = WGetter.getAllWords(); // Woerter laden
+	geheim = getWord();            // Auswahl des Worts
+	geraten = "";
+	for (int i=0;i<geheim.length();i++){
+	    geraten += "-";            // initial ------- (1 je Buchstabe)
+	}
+	guesses = "";                  // Speicher fuer Rateversuche
+    }
+
+    // zufaellige Auswahl eines Worts
+    private String getWord(){
+	int r = (int)(Math.random() * words.length);
+	return words[r];
+    }
+
+    // Aufgabe: Methode play implemenieren und 
+    // dabei ggf. weitere Methoden hinzufuegen
+    public void play(){
+
+    }
+
+    public static void main(String[] args){
+	Hangman hm = new Hangman();
+	hm.play();
+    }
+}

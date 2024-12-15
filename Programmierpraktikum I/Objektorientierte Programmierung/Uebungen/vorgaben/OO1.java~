@@ -1,0 +1,21 @@
+class A {
+    int a = 2;
+
+    public A(int a){
+    	this.a = a;
+    }
+}
+
+class B extends A {
+    int b;
+
+    public B(int b){
+	this.b = b;
+    }
+}
+
+public class OO1 {
+    public static void main(){
+	B b = new B(1);
+    }
+}
