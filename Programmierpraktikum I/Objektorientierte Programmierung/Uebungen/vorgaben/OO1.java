@@ -1,4 +1,4 @@
-Class A {
+class A {
     int a = 2;
 
     public A(int a){
@@ -13,7 +13,8 @@ class B extends A {
 	// Die Klasse B erbt von der Klasse A. Das es einen Standard-Konstruktor in A gibt, erwartet der Compiler
 	// den Aufruf dieses Konstruktors, welches jedoch hier fehlt.
 	// Dies behabt man, indem man super(b) initialisiert, welches den Konstruktor von A aufruft.
-	this.b = b;
+	super(b);
+    this.b = b;
     }
 }
 
